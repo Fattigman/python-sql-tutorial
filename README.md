@@ -18,6 +18,7 @@ Columns have specific data types, most commonly:
 * Strings
 * Booleans
 
+## How do I create data in SQL
 But more abstract types exists as well. Here is an example to create on how to create a table in sql:
 ```sql
 CREATE TABLE employees (
