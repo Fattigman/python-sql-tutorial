@@ -62,3 +62,19 @@ VALUES (1, 'Project A', 1),
        (2, 'Project B', 2),
        (3, 'Project C', 3);
 ```
+
+Then we can query data from several tables and filter based on only what we are looking for:
+
+```sql
+SELECT e.id, e.name, e.hire_date, p.name AS project_name
+FROM employees e
+JOIN projects p ON e.id = p.employee_id
+WHERE e.name = 'Jane Doe';
+```
+
+This `SELECT` statement uses a `JOIN` clause to combine data from the "employees" and "projects" tables based on a shared key (the employee's ID). The `ON` clause specifies the join condition, which is that the "id" column from the "employees" table must be equal to the "employee_id" column from the "projects" table.
+
+The `AS` clause is used to give the "name" column from the "projects" table an alias of "project_name," which makes it easier to distinguish between the two "name" columns in the resulting data set.
+
+The `WHERE` clause is used to filter the rows that are returned based on the employee's name. In this case, only rows for "Jane Doe" will be returned.
+
