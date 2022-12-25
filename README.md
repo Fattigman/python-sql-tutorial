@@ -34,8 +34,18 @@ VALUES (1, 'John Smith', '2022-01-01'),
        (2, 'Jane Doe', '2022-03-15'),
        (3, 'Bob Johnson', '2022-05-01');
 ```
+
+And then we can get the information by doing following:
+```sql
+-- Will get all information
+SELECT * FROM employees;
+-- Will only get the id and name columns
+SELECT id, name FROM employees;
+-- Will only show entries with a hire_date later than 2022-01-01
+SELECT * FROM employees WHERE hire_date > '2022-01-01';
+```
 ## SQL is a relational database
-SQL is also a so called relational database, meaning you can link tables to each other via keys. In the following case, we will create a table that is linked to the employees table via a key:
+SQL is also a so called relational database, meaning you can link tables to each other via keys, creating so called relations between the data. In the following case, we will create a table that is linked to the employees table via a key:
 
 ```sql
 CREATE TABLE projects (
