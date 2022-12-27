@@ -19,7 +19,7 @@ engine = create_engine('<database_URI>')
 ```
 With this engine you can perform various SQL actions. Here we will fetch all the information from a table called employees. For more information about SQL check out the other [documentation](docs/SQL.md)
 ```python
-employees = engine.execute('SELCECT * FROM employees')
+employees = engine.execute('SELECT * FROM employees')
 for employee in employees:
     print(employee)
 ```
