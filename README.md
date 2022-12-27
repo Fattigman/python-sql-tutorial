@@ -10,6 +10,7 @@ To run the project do the following, preferrably in your favorite virtual enviro
 git clone https://github.com/Fattigman/python-sql-tutorial
 cd python-sql-tutorial
 pip install -r requirements.txt
+cd src
 python main.py
 ```
 
