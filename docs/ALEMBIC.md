@@ -3,7 +3,7 @@ Alembic is a database migration tool.
 
 Ok, what is a database migration tool?
 
-Imagine you have a database that you want to update, that might include creating new tables, updating/deleting old ones. Manually this would take a long time with a lot of SQL statements. Thankfully with alembic we don't have to do it manually! As long as we stick to our sqlalchemy Base classes we can generate this migration scripts automatically using alembic.
+Imagine you have a database that you want to update, that might include creating new tables, updating/deleting old ones. Manually this would take a long time with a lot of SQL statements. Thankfully with alembic we don't have to do it manually! As long as we stick to our sqlalchemy Base classes we can generate this migration scripts automatically using alembic. Kind of like git for databases (but not entirely).
 
 Start by install alembic with pip
 
