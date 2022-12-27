@@ -7,5 +7,7 @@ Start reading at main.py and work your way up the spider web.
 
 You can also check the various docs I have created for simpler examples.
 ## Good to know
+These are a collection of small docs that I have written regarding SQL with pythong. Note that they are vertical in that they build upon eachother.
 * [A very minimal SQL primer](docs/SQL.md)
-* [A minimaler python SQLAlchemist primer](docs/PYSQL.md)
+* [A minimal python SQLAlchemist primer](docs/PYSQL.md)
+* [An minimal alembic primer](docs/ALEMBIC.md)
