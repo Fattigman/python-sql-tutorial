@@ -38,6 +38,10 @@ SELECT id, name FROM employees;
 -- Will only show entries with a hire_date later than 2022-01-01
 SELECT * FROM employees WHERE hire_date > '2022-01-01';
 ```
+***NOTE THIS***
+
+The id column is defined as primary key. This is a very important concept as it is a unique identifier for each item in a database. The primary key is a value that must be unique to each element in a table, and it shall never be changed. Those are the two most important rules of primary keys. There are some softer rules that are related to which database engine you use, such as if you should assign these keys manually or not. In some databases, foreign keys are automatically assigned, and is thus necessary, but in other databases they can be specified for more controlled during creation.
+
 ## SQL is a relational database
 SQL is also a so called relational database, meaning you can link tables to each other via keys, creating so called relations between the data. In the following case, we will create a table that is linked to the employees table via a key:
 
