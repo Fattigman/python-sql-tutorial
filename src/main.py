@@ -1,6 +1,5 @@
-from init_db import init_db
-from db import engine
-
+from db import init_db, engine, session
+from models import User, Item
 """
 This module is made to initiate the database and read the data from it.
 It will call the init_db() function from init_db.py to create the database.
@@ -9,14 +8,14 @@ The engine is imported from db.py.
 """
 def read_db():
     # Select all users from the database from the engine
-    users = engine.execute('SELECT * FROM users')
+    users = session.query(User).all()
     for user in users:
-        print(user)
+        print('user name: ', user.name)
 
     # Select all items from the database from the engine
-    items = engine.execute('SELECT * FROM items')
+    items = session.query(Item).all()
     for item in items:
-        print(item)
+        print('item name: ', item.name)
 
 
 if __name__ == '__main__':
@@ -24,4 +23,3 @@ if __name__ == '__main__':
     init_db()
     # Select all users from the database from the engine
     read_db()
-
