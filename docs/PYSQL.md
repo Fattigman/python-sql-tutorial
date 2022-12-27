@@ -62,3 +62,20 @@ user = User(name='John', email='john@example.com')
 session.add(user)
 session.commit()
 ```
+Then we can query data like this:
+```python
+# Fetches all of the information from the database
+users = session.query(User).all()
+for user in users:
+    print(user)
+
+# Filters out only users which has the name John
+users = session.query(User).filter(User.name == 'John').all()
+for user in users:
+    print(user)
+# Fetches all users and sorts them by name
+users = session.query(User).order_by(User.name).all()
+for user in users:
+    print(user)
+```
+
