@@ -1,6 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
-
+from sqlalchemy.orm import sessionmaker
 """
 This module is made to initiate the database.
 """
@@ -14,3 +14,6 @@ Base = declarative_base()
 # The SQLite3 database is stored in the same folder as the app.py file.
 # The database is called database.db
 engine = create_engine('sqlite:///database.db')
+
+Session = sessionmaker(bind=engine)
+session = Session()

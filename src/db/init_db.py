@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import database_exists, create_database
-
+from db import session
 from models import User, Item
 
 from db import engine, Base
@@ -17,11 +16,8 @@ def init_db():
 
         # Create the tables in the database
         # Base class uses the models to create the tables which is declared in the models/<model>.py file.
+        # This is when NOT using alembic
         Base.metadata.create_all(engine)
-        # Create a session to interact with the database
-        # This will allow the user to add data to the database
-        Session = sessionmaker(bind=engine)
-        session = Session()
         # Add a new user and item to the database
         user = User(name='John', email='john@example.com')
         # The user is added to the database, and since we use the relationship in the Item class, the user is also added to the item with no extra code.
