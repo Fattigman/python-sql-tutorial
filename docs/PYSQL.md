@@ -7,3 +7,58 @@ Thus, in order to couple SQL with other applications one can use other languages
 * Support for object-relational mapping (ORM), which allows you to map your Python objects to database tables.
 * Support for database migrations, which can make it easier to manage changes to your database schema.
 
+## How do I use SQLAlchemy then?
+Simple. You install sqlalchemy:
+```bash
+pip install sqlalchemy
+```
+Then you create an engine which you can interact with programatically in python:
+```python
+from sqlalchemy import create_engine
+engine = create_engine('<database_URI>')
+```
+With this engine you can perform various SQL actions. Here we will fetch all the information from a table called employees. For more information about SQL check out the other [documentation](docs/SQL.md)
+```python
+employees = engine.execute('SELCECT * FROM employees')
+for employee in employees:
+    print(employee)
+```
+## How do I create tables using SQLAlchemy
+This is a little more complicated question than it might seem.
+We will start by using declarative_base() function. In the SQLAlchemy library, the `declarative_base()` function is used to create a base class for defining the schema of a database in an object-oriented way. Here is an example on how to use it:
+
+```python
+# We import column types which can be used when defining Table objects.
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
+
+engine = create_engine('sqlite:///database.db')
+
+#Creates an instance of declarative_base
+Base = declarative_base()
+
+#Creates as User class that inherits the Base instance
+class User(Base):
+    # the name of the table which we will be able to find in the databse
+    __tablename__ = 'users'
+    # The column names and their respective types
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    email = Column(String)
+
+Base.metadata.create_all(engine)
+```
+
+This will create the User schema for the database. Then we can use python classes to query data using session_maker:
+```python
+from sqlalchemy.orm import sessionmaker
+
+Session = sessionmaker(bind=engine)
+session = Session()
+
+user = User(name='John', email='john@example.com')
+
+session.add(user)
+session.commit()
+```
